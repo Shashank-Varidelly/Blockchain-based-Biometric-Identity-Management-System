@@ -1,0 +1,1 @@
+`truffle (development) instance = await FaceRegistry.at(0xYourContractAddress...)` is not a valid truffle command. Please see `truffle help` for available commands.
