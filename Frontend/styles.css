@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; text-align: center; }
+#container { margin: 20px; }
+button { padding: 10px 20px; margin: 5px; }
+video { margin-top: 20px; }
+#result { color: green; font-size: 18px; }

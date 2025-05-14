@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .dashboard {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #2a5298;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .user-details {
+            text-align: left;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .user-details span {
+            font-weight: bold;
+            color: #2a5298;
+        }
+        .logout-btn {
+            margin-top: 30px;
+            background: #2a5298;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .logout-btn:hover {
+            background: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Welcome</h1>
+        <div class="user-details" id="userDetails"></div>
+        <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+    </div>
+    <script>
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        if (!userData) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('userDetails').innerHTML = `
+                <p><span>Name:</span> ${userData.name}</p>
+                <p><span>Age:</span> ${userData.age}</p>
+                <p><span>Gender:</span> ${userData.gender}</p>
+                <p><span>Face Hash:</span> ${userData.face_hash}</p>
+            `;
+            document.querySelector('h1').textContent = `Welcome, ${userData.name}`;
+        }
+    </script>
+</body>
+</html>
